@@ -37,7 +37,7 @@ function createBGDiv() {
 }
 
 function createScrollBG() {
-    let corentLocation = window.scrollY / 500;
+    let corentLocation = window.scrollY / 1000;
     while (corentLocation >= (pageLength() - 20)) {
         let addBGDiv = setTimeout(createBGDiv(), 0);
     }
