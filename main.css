@@ -67,6 +67,12 @@ body {
     margin-bottom: -1px;
 }
 
+
+.text-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
 /* header */
 
 header {
@@ -91,4 +97,13 @@ header {
 
 h3 {
     font-size: 24px;
+}
+
+/* imgs and extra stuf */
+
+.arrow {
+    position: relative;
+    display: block;
+    margin: 500px auto 0 auto;
+    width: 100px;
 }
