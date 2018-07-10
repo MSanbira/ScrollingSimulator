@@ -1,11 +1,9 @@
 
 let BGWrapper = document.querySelector('.bg-wrapper');
 
-let lastColor = {
-    red: 255 * Math.random(),
-    green: 255 * Math.random(),
-    blue: 255 * Math.random()
-}
+let scoreSpan = document.querySelector('.score');
+
+let lastColor = createRandomColor();
 
 let score = 0;
 
@@ -14,12 +12,22 @@ function pageLength() {
     return (BGDivs.length + 1);
 }
 
-function createBGDiv() {
-    let newColor = {
+function updateScore() {
+    score = Math.round(window.scrollY / 100);
+    scoreSpan.innerText = score;
+}
+
+function createRandomColor() {
+    const newColor = {
         red: 255 * Math.random(),
         green: 255 * Math.random(),
         blue: 255 * Math.random()
     }
+    return newColor;
+}
+
+function createBGDiv() {
+    let newColor = createRandomColor();
     const lastColorRGB = `rgb(${lastColor.red},${lastColor.green},${lastColor.blue})`;
     const newColorRGB = `rgb(${newColor.red},${newColor.green},${newColor.blue})`;
     let newBGHTML = `<div class="bg" style="background: linear-gradient(${lastColorRGB}, ${newColorRGB})"></div>
@@ -39,6 +47,11 @@ function init() {
     createBGDiv();
     createScrollBG();
 }
+
+window.addEventListener('scroll', (event) => {
+    createScrollBG();
+    updateScore();
+});
 
 init();
 
