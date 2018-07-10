@@ -44,6 +44,7 @@ function createScrollBG() {
 }
 
 function init() {
+    window.scrollTo(0,0);
     createBGDiv();
     createScrollBG();
 }
